@@ -1,7 +1,3 @@
-# End-Users
-For Developers > Configurable react components.
-For Business Users > Let AI do it all.
-
 # Components >
 
 <details>
