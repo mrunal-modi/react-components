@@ -4,9 +4,23 @@ Low Code No Code! > Simply update configuration to use react components in your 
 # For Consumers > 
 Let AI do it all > Explore the use of AI to create the content for your website.
 
-# Sections
-## Banner
-Add a full-width banner
+<details>
+<summary>Banner</summary>
+
+### Add a full-width banner
+```
+    img = "",
+    suptitle = "",
+    title = "",
+    subtitle = "",
+    text = "",
+    actionButtons = [],
+    rtl,
+    imageHeight = "100%",
+    setImageAsBackground = false
+```
+</details>
+
 
 ## Quote/testimonial
 Display a quote or testimonial

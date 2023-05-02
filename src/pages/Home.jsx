@@ -26,7 +26,6 @@ const Home = {
             ],
             "bgColor": "#ffc300",
             "textColor": "#fff",
-            // "height": "800px",
             // "setImageAsBackground": true,
             // "rtl": true 
         },
