@@ -1,11 +1,10 @@
-# For Developers > Low Code No Code!
-Simply update configuration to use react components in your website!
+# For Developers > 
+Low Code No Code! > Simply update configuration to use react components in your website!
 
-# For Consumers > Let AI do it all!
-Explore the use of AI to create the content for the your website.
+# For Consumers > 
+Let AI do it all > Explore the use of AI to create the content for your website.
 
-# UI Sections
-
+# Sections
 ## Banner
 Add a full-width banner
 
