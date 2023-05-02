@@ -1,0 +1,68 @@
+import { useEffect, useMemo, useState } from "react";
+import * as viewConfig from "../pages";
+import { useLocation } from "react-router-dom";
+import Section from "../components/common/section/section";
+import Banner from "../components/sections/banner/banner";
+import TextImage from "../components/sections/text-image/text-image";
+import Text from "../components/sections/text/text";
+import Form from "../components/common/form/form";
+import ListCards from "../components/sections/list-cards/list-cards";
+
+
+const PageManager = () => {
+    const location = useLocation();
+    const [view, setView] = useState(null);
+    // eslint-disable-next-line
+    const [data, setData] = useState(null);
+    const [mounted, setMounted] = useState(false);
+
+    const Components = useMemo(() => ({
+        "Banner": Banner,
+        "TextImage": TextImage,
+        "Text": Text,
+        "Form": Form,
+        "ListCards": ListCards
+    }), []);
+
+    useEffect(() => {
+        let v = Object.values(viewConfig).find(el => el.path === location.pathname);
+        if (v) {
+            setView(v.view);
+            setData(v.data);
+        }
+        setMounted(true);
+    }, [location]);
+
+    return (
+        <div className="page-manager">
+            {(mounted && !view) &&
+                <h1 className="text-center">
+                    404 Not Found
+                </h1>
+            }
+            {(mounted && view) && Object.keys(view).map((id, i) => {
+                let Component = Components[view[id]["component"]];
+                if (!Component) return null;
+                return (
+                    <Section
+                        className={view[id].className}
+                        title={view[id].sectionTitle}
+                        id={view[id].id}
+                        bgColor={view[id].bgColor}
+                        textColor={view[id].textColor}
+                        bgImage={view[id].bgImage}
+                    >
+                        <Component
+                            key={i}
+                            {...view[id]}
+                        >
+                            {view[id].children}
+                        </Component>
+                    </Section>
+                )
+            })}
+        </div>
+    )
+}
+
+export default PageManager;
