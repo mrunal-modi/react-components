@@ -1,8 +1,6 @@
-# Developers >
-Low Code No Code! > Simply update configuration to use react components in your website!
-
-# Consumers >
-Let AI do it all > Explore the use of AI to create the content for your website.
+# End-Users
+For Developers > Configurable react components.
+For Business Users > Let AI do it all.
 
 # Components >
 
