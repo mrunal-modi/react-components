@@ -8,7 +8,9 @@ Let AI do it all > Explore the use of AI to create the content for your website.
 
 <details>
 <summary>Banner</summary>
-Add a full-width banner
+
+#### Add a full-width banner
+
 ```
     img = "",
     suptitle = "",
@@ -24,7 +26,9 @@ Add a full-width banner
 
 <details>
 <summary>Testimonial</summary>
-Display a quote or testimonial
+
+#### Display a quote or testimonial
+
 ```
     img = "",
     suptitle = "",
