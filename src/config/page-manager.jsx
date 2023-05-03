@@ -6,6 +6,7 @@ import Banner from "../components/sections/banner/banner";
 import TextImage from "../components/sections/text-image/text-image";
 import Text from "../components/sections/text/text";
 import Form from "../components/common/form/form";
+import ContactForm from "../components/sections/contact-form/contact-form";
 import ListCards from "../components/sections/list-cards/list-cards";
 
 
@@ -21,6 +22,7 @@ const PageManager = () => {
         "TextImage": TextImage,
         "Text": Text,
         "Form": Form,
+        "ContactForm": ContactForm,
         "ListCards": ListCards
     }), []);
 
