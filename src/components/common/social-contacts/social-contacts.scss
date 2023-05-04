@@ -1,10 +1,15 @@
-.contacts{
-  .contactIcons{
-    color: #808080;
-    font-size: 20px;
-    padding-left: 10px; padding-right: 10px; border-left-width: 10px;
-    &:hover{
-      color: #808080;
-    }
+.social-contacts{
+  .social-links{
+    margin: 0 -10px; 
+    .contactIcons{
+      color: inherit;
+      font-size: 28px;
+      padding-left: 10px; 
+      padding-right: 10px; 
+      border-left-width: 10px;
+      &:hover{
+        color: inherit;
+      }
+    } 
   }
 }

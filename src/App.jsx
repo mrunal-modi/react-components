@@ -6,11 +6,15 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/sections/header/header";
 import Sidebar from "./components/sections/header/sidebar";
 import Footer from "./components/sections/footer/footer";
-
-import headerConfig from "./config/header.config";
 import PageManager from "./page-manager";
-
 import { NotificationProvider } from "./hooks/NotificationContext";
+
+import { 
+  HEADER_CONFIG, 
+  FOOTER_CONFIG, 
+  BRAND_DESCRIPTION,
+  SOCIAL_LINKS
+} from "./config/config";
 
 // 
 // @ Note to Self:
@@ -30,8 +34,8 @@ const App = () => {
     <NotificationProvider>
       <BrowserRouter>
         <Header
-          {...headerConfig}
-          height={headerConfig.height || defaultHeaderHeight}
+          {...HEADER_CONFIG}
+          height={HEADER_CONFIG.height || defaultHeaderHeight}
           toggleSidebar={toggleSidebar}
         />
         <Sidebar
@@ -41,14 +45,18 @@ const App = () => {
         <main
           className="main"
           style={{
-            paddingTop: headerConfig.position === 'fixed' ? headerConfig.height || defaultHeaderHeight : ""
+            paddingTop: HEADER_CONFIG.position === 'fixed' ? HEADER_CONFIG.height || defaultHeaderHeight : ""
           }}
         >
           <Routes>
             <Route path="*" element={<PageManager />} />
           </Routes>
         </main>
-        <Footer />
+        <Footer 
+          {...FOOTER_CONFIG} 
+          description={FOOTER_CONFIG.description || BRAND_DESCRIPTION}
+          social={SOCIAL_LINKS}
+        />
       </BrowserRouter>
     </NotificationProvider>
   );

@@ -13,6 +13,7 @@ const Header = ({
   bgColor="#f2f2f2",
   textColor="#000",
   borderColor="#f2f2f2",
+  border="",
   height=80,
   toggleSidebar=()=>{}
 }) => {
@@ -25,7 +26,7 @@ const Header = ({
       height: height,
       display: "flex",
       flexFlow: "row",
-      borderBottom: `solid 1px ${borderColor}`,
+      borderBottom: border || `solid 1px ${borderColor}`,
       alignItems: "center",
       justifyContent: "center",
       zIndex: 9999
