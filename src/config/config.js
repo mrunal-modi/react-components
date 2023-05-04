@@ -1,2 +1,2 @@
-export const BRAND_NAME = 'MY FIRST WEBSITE';
-export const LOGO_PATH = "";
+export const BRAND_NAME = 'MyCo';
+export const LOGO_PATH = "../../images/logo.png";
