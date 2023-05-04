@@ -10,9 +10,9 @@ const Header = ({
   position="relative",
   customNav=false,
   isNavbarLeft=false,
-  bgColor="#fff",
+  bgColor="#f2f2f2",
   textColor="#000",
-  borderColor="#bdbdbd",
+  borderColor="#f2f2f2",
   height=80,
   toggleSidebar=()=>{}
 }) => {
