@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
-import * as viewConfig from "../pages";
+import * as viewConfig from "./pages";
 import { useLocation } from "react-router-dom";
-import Section from "../components/common/section/section";
-import Banner from "../components/sections/banner/banner";
-import TextImage from "../components/sections/text-image/text-image";
-import Text from "../components/sections/text/text";
-import Form from "../components/common/form/form";
-import ContactForm from "../components/sections/contact-form/contact-form";
-import ListCards from "../components/sections/list-cards/list-cards";
+import Section from "./components/common/section/section";
+import Banner from "./components/sections/banner/banner";
+import TextImage from "./components/sections/text-image/text-image";
+import Text from "./components/sections/text/text";
+import Form from "./components/common/form/form";
+import ContactForm from "./components/sections/contact-form/contact-form";
+import ListCards from "./components/sections/list-cards/list-cards";
 
 
 const PageManager = () => {
@@ -53,9 +53,9 @@ const PageManager = () => {
                         bgColor={view[id].bgColor}
                         textColor={view[id].textColor}
                         bgImage={view[id].bgImage}
+                        key={i}
                     >
                         <Component
-                            key={i}
                             {...view[id]}
                         >
                             {view[id].children}

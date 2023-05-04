@@ -32,31 +32,31 @@ const ContactForm = ({
             "name": "description"
         }
     ],
-    id="",
-    isEmailRequired=true,
-    isPhoneRequired=true,
-    isMessageRequired=true,
-    submitButtonStyle="",
-    title="Contact Us",
+    id = "",
+    isEmailRequired = true,
+    isPhoneRequired = true,
+    isMessageRequired = true,
+    submitButtonStyle = "primary",
+    title = "Contact Us",
 }) => {
-    let _inputs = useMemo(()=> {
-        return inputs.filter((el)=> {
-            if(!isEmailRequired && el.name === "email")
-            return false
-            if(!isPhoneRequired && el.name === "phone")
-            return false
-            if(!isMessageRequired && el.name === "description")
-            return false
+    let _inputs = useMemo(() => {
+        return inputs.filter((el) => {
+            if (!isEmailRequired && el.name === "email")
+                return false
+            if (!isPhoneRequired && el.name === "phone")
+                return false
+            if (!isMessageRequired && el.name === "description")
+                return false
             return true
         })
     }, [inputs, isEmailRequired, isPhoneRequired, isMessageRequired])
     return (
-                <Form
-                id={id}
-                inputs={_inputs}
-                submitButtonStyle={submitButtonStyle}
-                title={title}
-                />
+        <Form
+            id={id}
+            inputs={_inputs}
+            submitButtonStyle={submitButtonStyle}
+            title={title}
+        />
     )
 }
 

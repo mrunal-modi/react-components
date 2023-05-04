@@ -4,7 +4,7 @@ const headerConfig = {
     customNav: false,
     isNavbarLeft: false,
     bgColor: "#2c6bcc",
-    textColor: "#f2f2f2"
+    textColor: "#f2f2f2",
 };
 
 

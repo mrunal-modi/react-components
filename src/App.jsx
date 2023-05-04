@@ -8,7 +8,7 @@ import Sidebar from "./components/sections/header/sidebar";
 import Footer from "./components/sections/footer/footer";
 
 import headerConfig from "./config/header.config";
-import PageManager from "./pages/page-manager";
+import PageManager from "./page-manager";
 
 import { NotificationProvider } from "./hooks/NotificationContext";
 
