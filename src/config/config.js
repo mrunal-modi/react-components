@@ -1,7 +1,7 @@
 import { FaTwitter, FaInstagram, FaDiscord } from "react-icons/fa"
 
 export const BRAND_NAME = 'MyCo';
-export const BRAND_DESCRIPTION = "This is a short description for website which will be used for both meta and footer description";
+export const BRAND_DESCRIPTION = "This is a short description used for both meta and footer description";
 export const LOGO_PATH = "../../images/logo.png";
 
 export const HEADER_CONFIG = {
