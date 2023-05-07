@@ -229,5 +229,7 @@ V2.
 1. Carousal Component
 2. Testimonials
 3. Mobile View
-
+4. Dropdown on header
+5. Gallery
+6. Video
 
