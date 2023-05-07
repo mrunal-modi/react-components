@@ -231,12 +231,3 @@ V2.
 3. Mobile View
 
 
-Bugs:
-
-1. On Topbar active page is not highlighted.
-2. On Mobile view services are not wrapping
-
-
-
-
-

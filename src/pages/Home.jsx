@@ -64,6 +64,11 @@ const Home = {
                     "title": "MM",
                     "img": "/images/home-banner.jpg",
                     "description": "Enim in fugiat reprehenderit incididunt ",
+                },
+                {
+                    "title": "MM",
+                    "img": "/images/home-banner.jpg",
+                    "description": "Enim in fugiat reprehenderit incididunt ",
                 }
             ],
             // "bgColor": "#f2f2f2",

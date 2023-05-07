@@ -1,11 +1,21 @@
 import "./sidebar.scss";
 // import Logo from "../../common/logo/logo";
 import NavItem from "../../common/nav-item/nav-item";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const Sidebar = ({
 	isOpen,
 	toggleSidebar
 }) => {
+
+	const location = useLocation();
+
+	useEffect(() => {
+		if(isOpen){
+			toggleSidebar();
+		}
+	}, [location]);
 
 	return (
 		<div className={`sidebar-container ${isOpen ? "sidebar-open" : "sidebar-close"}`} >
