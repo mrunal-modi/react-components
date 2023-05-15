@@ -44,7 +44,10 @@ const PageManager = () => {
             }
             {(mounted && view) && Object.keys(view).map((id, i) => {
                 let Component = Components[view[id]["component"]];
-                if (!Component) return null;
+                
+                if (!Component) 
+                    return null;
+
                 return (
                     <Section
                         className={view[id].className}
@@ -54,6 +57,7 @@ const PageManager = () => {
                         textColor={view[id].textColor}
                         bgImage={view[id].bgImage}
                         key={i}
+                        componentName={view[id]["component"]}
                     >
                         <Component
                             {...view[id]}

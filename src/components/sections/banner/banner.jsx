@@ -1,3 +1,5 @@
+import { useTheme } from "../../../hooks/ThemeContext";
+import Button from "../../common/Button/Button";
 import Link from "../../common/link/link";
 import "./banner.scss";
 
@@ -12,6 +14,9 @@ const Banner = ({
     imageHeight = "100%",
     setImageAsBackground = false
 }) => {
+
+    const { SECONDARY_COLOR, TEXT_COLOR } = useTheme();
+
     return (
         <div
             className={`banner ${rtl ? "rtl" : "ltr"} ${setImageAsBackground ? "bg-img" : ""}`}
@@ -51,9 +56,9 @@ const Banner = ({
                     {actionButtons &&
                         <div className="btn-container">
                             {actionButtons.map((el, i) => (
-                                <Link className="btn btn-primary" key={i} {...el}>
+                                <Button key={i} {...el} bgColor={SECONDARY_COLOR} textColor={TEXT_COLOR}>
                                     {el.label}
-                                </Link>
+                                </Button>
                             ))}
                         </div>
                     }

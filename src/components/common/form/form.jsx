@@ -5,6 +5,7 @@ import Spinner from "../spinner/spinner";
 import { useNotification } from "../../../hooks/NotificationContext";
 import { validate } from "../../../utils/helpers";
 import "./form.scss";
+import Button from "../Button/Button";
 
 
 const Form = ({
@@ -12,7 +13,9 @@ const Form = ({
     method = "post",
     emailTemplateId = "",
     submitButtonLabel = "Submit",
-    submitButtonStyle = "primary",
+    submitButtonBgColor = "",
+    submitButtonTextColor = "",
+    submitButtonBorder = ""
 }) => {
 
     const [state, setState] = useState({});
@@ -92,9 +95,13 @@ const Form = ({
                 </label>
             )}
             <div className="btn-container">
-                <button className={`btn btn-${submitButtonStyle}`}>
+                <Button 
+                    bgColor={submitButtonBgColor} 
+                    textColor={submitButtonTextColor}
+                    borderRadius={submitButtonBorder || 5}
+                >
                     {loading ? <Spinner size={1} /> : submitButtonLabel}
-                </button>
+                </Button>
             </div>
         </form>
     )

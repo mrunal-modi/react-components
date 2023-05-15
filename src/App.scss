@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  color: inherit;
+  border-color: var(--accentColor);
 }
 
 .container{
@@ -12,6 +14,8 @@ body {
   margin: 0;
   font-family: "Amazon Ember", sans-serif;
   font-size: 16px;
+  // background-color: var(--primaryColor);
+
 }
 
 .main {

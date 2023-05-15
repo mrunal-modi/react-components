@@ -1,6 +1,6 @@
 import "./sidebar.scss";
 // import Logo from "../../common/logo/logo";
-import NavItem from "../../common/nav-item/nav-item";
+import NavItem from "../nav-item/nav-item";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 

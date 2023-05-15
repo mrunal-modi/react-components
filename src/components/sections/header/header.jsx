@@ -1,38 +1,45 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
-// import Hamburger from "../hamburger/hamburger";
 import Hamburger from "../../common/hamburger/hamburger";
 import Logo from "../../common/logo/logo";
 import NavItem from "../../common/nav-item/nav-item";
 import "./header.scss";
+import { useTheme } from "../../../hooks/ThemeContext";
 
 const Header = ({
-  position="relative",
-  customNav=false,
-  isNavbarLeft=false,
-  bgColor="#f2f2f2",
-  textColor="#000",
-  borderColor="#f2f2f2",
-  border="",
-  height=80,
-  toggleSidebar=()=>{}
+  position = "",
+  customNav = false,
+  isNavbarLeft = false,
+  bgColor = "",
+  textColor = "",
+  borderColor = "",
+  border = "",
+  height = 80,
+  toggleSidebar = () => { }
 }) => {
+  const {
+    PRIMARY_COLOR,
+    SECONDARY_COLOR,
+    BASE_COLOR,
+    TEXT_COLOR
+  } = useTheme();
+
   const _header = useRef();
   const style = useMemo(() => {
     let s = {
       position: 'relative',
-      backgroundColor: bgColor,
-      color: textColor,
+      backgroundColor: bgColor || PRIMARY_COLOR,
+      color: textColor || SECONDARY_COLOR,
       height: height,
       display: "flex",
       flexFlow: "row",
-      borderBottom: border || `solid 1px ${borderColor}`,
+      borderBottom: border,
       alignItems: "center",
       justifyContent: "center",
-      zIndex: 9999
+      zIndex: 9999,
     };
 
-    if(position === 'fixed'){
+    if (position === 'fixed') {
       s.position = position;
       s.top = 0;
       s.left = 0;
@@ -40,43 +47,43 @@ const Header = ({
     }
 
     return s;
-  }, [position, bgColor, textColor, height]);
+  }, [position, bgColor, textColor, height, border, borderColor, PRIMARY_COLOR, SECONDARY_COLOR]);
 
-  useEffect(() => {
-    var header = _header.current;
-    var sticky = height * 2;
 
-    const handleScroll = () => {
-      if(position === 'sticky'){
-        if (window.pageYOffset > sticky) {
-          header.style.position = 'sticky';
-          header.style.top = 0;
-        } else {
-          header.style.position = 'relative';
-          header.style.top = 0;
-        }
+  const handleScroll = useCallback(() => {
+    if (position === 'fixed') {
+      var header = _header.current;
+      var sticky = height * 2;
+      if (window.pageYOffset > sticky) {
+        header.style.backgroundColor = BASE_COLOR;
+        header.style.color = TEXT_COLOR;
+      } else {
+        header.style.backgroundColor = PRIMARY_COLOR;
+        header.style.color = SECONDARY_COLOR;
       }
     }
+  }, [_header, position, height, BASE_COLOR, TEXT_COLOR, PRIMARY_COLOR, SECONDARY_COLOR,]);
 
-    window.addEventListener("scroll", handleScroll)
-
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, true)
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll, true);
     }
 
 
-  }, [position, _header]);
+  }, [position, handleScroll]);
+
 
 
   return (
-    <header 
+    <header
       className={`topbar`}
       style={style}
       ref={_header}
     >
-      <Link 
-        to="/" 
-        className={`${isNavbarLeft ? "mr-20" :"mr-auto"}`}
+      <Link
+        to="/"
+        className={`${isNavbarLeft ? "mr-20" : "mr-auto"}`}
         style={{
           textDecoration: "none",
           color: "inherit",
@@ -87,14 +94,14 @@ const Header = ({
       </Link>
 
       <div className={`nav-bar-container ${isNavbarLeft ? "mr-auto" : ""}`}>
-        <NavItem 
+        <NavItem
           nav={customNav}
         />
       </div>
 
-      <Hamburger 
-        setOpen={toggleSidebar} 
-        color={textColor}
+      <Hamburger
+        setOpen={toggleSidebar}
+        color={textColor || SECONDARY_COLOR}
       />
     </header>
   );

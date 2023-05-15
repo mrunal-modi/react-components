@@ -5,29 +5,28 @@ export const BRAND_DESCRIPTION = "This is a short description used for both meta
 export const LOGO_PATH = "../../images/logo.png";
 
 export const HEADER_CONFIG = {
-    position: "fixed", // fixed, sticky, normal
+    position: "fixed", // fixed, normal
     customNav: false,
     isNavbarLeft: false,
-    bgColor: "#2c6bcc",
-    textColor: "#f2f2f2",
+    // bgColor: "#2c6bcc",
+    // textColor: "#f2f2f2",
 };
 
 export const FOOTER_CONFIG = {
     // description: "",
     // isFootNavigation: "",
-    copyrightInfo: "All Rights Reserved, DevStack Tutor",
     // isSocial: "",
     // isSubFooter: "",
     // isCredits: "",
     // creditInfo: "",
-
     // bgColor: "#f2f2f2",
-    textColor: "#000",
     // borderColor: "#f2f2f2",
     // border: "#f2f2f2",
+    copyrightInfo: "All Rights Reserved, DevStack Tutor",
+    textColor: "",
     minHeight: "",
-    subFooterBgColor: "#fff",
-    subFooterTextColor: "#000",
+    subFooterBgColor: "",
+    subFooterTextColor: "",
     socialLinksConfig: {
         color: "#bdbdbd"
     }

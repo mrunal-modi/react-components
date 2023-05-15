@@ -3,6 +3,8 @@ import "./footer.scss";
 import NavItem from "../../common/nav-item/nav-item";
 import Logo from "../../common/logo/logo";
 import { useMemo } from "react";
+import { useTheme } from "../../../hooks/ThemeContext";
+
 
 export default function Footer({
 	description = "",
@@ -12,27 +14,40 @@ export default function Footer({
 	isSubFooter = true,
 	isCredits = true,
 	creditInfo = <>Made with ❤️ <br /> using React Components</>,
-	bgColor = "#fff",
-	textColor = "#000",
-	borderColor = "#f2f2f2",
+	bgColor = "",
+	textColor = "",
+	borderColor = "",
 	border = "",
 	minHeight = 180,
-	subFooterBgColor = "#fff",
-	subFooterTextColor = "#000",
-	social=[],
-	socialLinksConfig={}
+	subFooterBgColor = "",
+	subFooterTextColor = "",
+	social = [],
+	socialLinksConfig = {}
 }) {
 
+	const {
+		BASE_COLOR,
+		TEXT_COLOR
+	} = useTheme();
 	const style = useMemo(() => {
 		let s = {
-			backgroundColor: bgColor,
-			color: textColor,
+			backgroundColor: bgColor || BASE_COLOR,
+			color: textColor || TEXT_COLOR,
 			minHeight: minHeight,
 			borderTop: border || `solid 1px ${borderColor}`,
 		};
 
 		return s;
-	}, [bgColor, textColor, minHeight]);
+	}, [bgColor, textColor, minHeight, BASE_COLOR, TEXT_COLOR]);
+
+	const subFooterStyle = useMemo(() => {
+		let s = {
+			backgroundColor: subFooterBgColor || BASE_COLOR,
+			color: subFooterTextColor || TEXT_COLOR,
+		};
+
+		return s;
+	}, [subFooterBgColor, subFooterTextColor, BASE_COLOR, TEXT_COLOR]);
 
 	return (
 		<footer className="footer" style={style}>
@@ -49,7 +64,7 @@ export default function Footer({
 					}
 					{isSocial &&
 						<div className="social">
-							<SocialContact  
+							<SocialContact
 								social={social}
 								title={"Follow Us"}
 								{...socialLinksConfig}
@@ -59,10 +74,7 @@ export default function Footer({
 				</div>
 			</section>
 			{isSubFooter &&
-				<section className="bottom-bar flex justify-center align-center" style={{
-					backgroundColor: subFooterBgColor,
-					color: subFooterTextColor
-				}}>
+				<section className="bottom-bar flex justify-center align-center" style={subFooterStyle}>
 					{copyrightInfo &&
 						<div className="copyright-content">
 							&copy; {copyrightInfo}

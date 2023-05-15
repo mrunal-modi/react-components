@@ -1,6 +1,7 @@
 import Title from "../title/title";
 import { useMemo } from "react";
 import "./section.scss";
+import { useTheme } from "../../../hooks/ThemeContext";
 
 const Section = ({
     children,
@@ -9,15 +10,22 @@ const Section = ({
     id,
     bgColor,
     textColor,
-    bgImage
+    bgImage,
+    componentName
 }) => {
+
+    const {
+        PRIMARY_COLOR,
+        SECONDARY_COLOR,
+        BASE_COLOR,
+        TEXT_COLOR
+      } = useTheme();
 
     let styles = useMemo(() => {
         let s = {
-            background: bgColor,
-            color: textColor
+            background: bgColor || (componentName === 'Banner' ? PRIMARY_COLOR : BASE_COLOR),
+            color: textColor || (componentName === 'Banner' ? SECONDARY_COLOR : TEXT_COLOR)
         };
-
         if (bgImage) {
             s = {
                 ...s,
@@ -29,7 +37,7 @@ const Section = ({
 
         return s;
 
-    }, [bgColor, textColor, bgImage]);
+    }, [bgColor, textColor, bgImage, componentName, PRIMARY_COLOR, SECONDARY_COLOR, BASE_COLOR, TEXT_COLOR]);
 
     return (
         <div

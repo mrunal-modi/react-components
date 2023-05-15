@@ -15,7 +15,7 @@ const Home = {
             "actionButtons": [
                 {
                     "label": "Hire",
-                    "to": "/contact",
+                    "to": "/page1",
                     // "style": {"width": 400}
                 },
                 {
@@ -24,8 +24,8 @@ const Home = {
                     // "style": {"width": 400}
                 }
             ],
-            "bgColor": "#f2f2f2",
-            "textColor": "#000",
+            // "bgColor": "#f2f2f2",
+            // "textColor": "#000",
             // "setImageAsBackground": true,
             // "rtl": true 
         },
@@ -52,22 +52,17 @@ const Home = {
             "cardInfo": [
                 {
                     "title": "MM",
-                    "img": "/images/home-banner.jpg",
+                    "img": "/images/home-banner-old.jpg",
                     "description": "Enim in fugiat reprehenderit ",
                 },
                 {
                     "title": "MM",
-                    "img": "/images/home-banner.jpg",
+                    "img": "/images/home-banner-old.jpg",
                     "description": "Enim in fugiat reprehenderit ",
                 },
                 {
                     "title": "MM",
-                    "img": "/images/home-banner.jpg",
-                    "description": "Enim in fugiat reprehenderit incididunt ",
-                },
-                {
-                    "title": "MM",
-                    "img": "/images/home-banner.jpg",
+                    "img": "/images/home-banner-old.jpg",
                     "description": "Enim in fugiat reprehenderit incididunt ",
                 }
             ],
@@ -77,8 +72,8 @@ const Home = {
         "section-contact-us": {
             "component": "ContactForm",
             "sectionTitle": "Contact Us",
-            "bgColor": "#f2f2f2",
-            "textColor": "#000",
+            // "bgColor": "#f2f2f2",
+            // "textColor": "#000",
         }
     }
 };
