@@ -1,6 +1,7 @@
 import { useMemo } from "react"
 import { useTheme } from "../../../hooks/ThemeContext"
 import { useLocation, useNavigate } from "react-router-dom";
+import {scrollToElement} from "../../../utils/helpers";
 
 const Button = ({
     className = "",
@@ -37,6 +38,9 @@ const Button = ({
             return navigate(to);
 
         if (href) {
+            if(href.charAt(0) === "#"){
+                return scrollToElement(href.substring(1))
+            }
             return window.location.href = href;
         }
 

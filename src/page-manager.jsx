@@ -52,7 +52,7 @@ const PageManager = () => {
                     <Section
                         className={view[id].className}
                         title={view[id].sectionTitle}
-                        id={view[id].id}
+                        id={view[id].id || id}
                         bgColor={view[id].bgColor}
                         textColor={view[id].textColor}
                         bgImage={view[id].bgImage}

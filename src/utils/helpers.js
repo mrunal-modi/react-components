@@ -116,3 +116,11 @@ export const clearStorage = () => {
     localStorage.removeItem('access_token');
     localStorage.removeItem("persist:root");
 }
+
+export function scrollToElement(elementId) {
+    const element = document.getElementById(elementId);
+    console.log(element, elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  } 
