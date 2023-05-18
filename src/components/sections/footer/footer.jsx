@@ -4,26 +4,30 @@ import NavItem from "../../common/nav-item/nav-item";
 import Logo from "../../common/logo/logo";
 import { useMemo } from "react";
 import { useTheme } from "../../../hooks/ThemeContext";
+import { useConfig } from "../../../hooks/ConfigContext";
 
 
-export default function Footer({
-	description = "",
-	isFootNavigation = true,
-	copyrightInfo = "",
-	isSocial = true,
-	isSubFooter = true,
-	isCredits = true,
-	creditInfo = <>Made with ❤️ <br /> using React Components</>,
-	bgColor = "",
-	textColor = "",
-	borderColor = "",
-	border = "",
-	minHeight = 180,
-	subFooterBgColor = "",
-	subFooterTextColor = "",
-	social = [],
-	socialLinksConfig = {}
-}) {
+export default function Footer() {
+
+	const { footer } = useConfig();
+
+	const {
+		description = "",
+		isFootNavigation = true,
+		copyrightInfo = "",
+		isSocial = true,
+		isSubFooter = true,
+		isCredits = true,
+		creditInfo = "",
+		bgColor = "",
+		textColor = "",
+		borderColor = "",
+		border = "",
+		minHeight = 180,
+		subFooterBgColor = "",
+		subFooterTextColor = "",
+	} = footer;
+
 
 	const {
 		BASE_COLOR,
@@ -65,9 +69,7 @@ export default function Footer({
 					{isSocial &&
 						<div className="social">
 							<SocialContact
-								social={social}
 								title={"Follow Us"}
-								{...socialLinksConfig}
 							/>
 						</div>
 					}

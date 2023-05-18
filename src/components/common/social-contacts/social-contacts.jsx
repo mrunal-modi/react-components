@@ -1,11 +1,14 @@
 
+import { useConfig } from "../../../hooks/ConfigContext";
 import "./social-contacts.scss";
 
 const SocialContact = ({
-  social = [],
   showNames = false,
   title = ""
 }) => {
+
+  const { social } = useConfig();
+
   return (
     <div
       className="social-contacts"

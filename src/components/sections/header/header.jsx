@@ -5,18 +5,25 @@ import Logo from "../../common/logo/logo";
 import NavItem from "../../common/nav-item/nav-item";
 import "./header.scss";
 import { useTheme } from "../../../hooks/ThemeContext";
+import { useConfig } from "../../../hooks/ConfigContext";
 
 const Header = ({
-  position = "",
-  customNav = false,
-  isNavbarLeft = false,
-  bgColor = "",
-  textColor = "",
-  borderColor = "",
-  border = "",
-  height = 80,
   toggleSidebar = () => { }
 }) => {
+
+  const { header } = useConfig();
+
+  const { 
+    position = "",
+    customNav = false,
+    isNavbarLeft = false,
+    bgColor = "",
+    textColor = "",
+    borderColor = "",
+    border = "",
+    height = 80,
+  } = header;
+
   const {
     PRIMARY_COLOR,
     SECONDARY_COLOR,

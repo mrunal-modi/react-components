@@ -1,16 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
-import * as viewConfig from "./pages";
 import { useLocation } from "react-router-dom";
-import Section from "./components/common/section/section";
-import Banner from "./components/sections/banner/banner";
-import TextImage from "./components/sections/text-image/text-image";
-import Text from "./components/sections/text/text";
-import Form from "./components/common/form/form";
-import ContactForm from "./components/sections/contact-form/contact-form";
-import ListCards from "./components/sections/list-cards/list-cards";
+import Section from "../components/common/section/section";
+import Banner from "../components/sections/banner/banner";
+import TextImage from "../components/sections/text-image/text-image";
+import Text from "../components/sections/text/text";
+import Form from "../components/common/form/form";
+import ContactForm from "../components/sections/contact-form/contact-form";
+import ListCards from "../components/sections/list-cards/list-cards";
 
 
-const PageManager = () => {
+const PageManager = ({
+    views
+}) => {
     const location = useLocation();
     const [view, setView] = useState(null);
     // eslint-disable-next-line
@@ -27,13 +28,13 @@ const PageManager = () => {
     }), []);
 
     useEffect(() => {
-        let v = Object.values(viewConfig).find(el => el.path === location.pathname);
+        let v = Object.values(views).find(el => el.path === location.pathname);
         if (v) {
             setView(v.view);
             setData(v.data);
         }
         setMounted(true);
-    }, [location]);
+    }, [location, views]);
 
     return (
         <div className="page-manager">
