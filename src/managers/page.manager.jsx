@@ -29,6 +29,7 @@ const PageManager = ({
 
     useEffect(() => {
         let v = Object.values(views).find(el => el.path === location.pathname);
+        console.log(v)
         if (v) {
             setView(v.view);
             setData(v.data);

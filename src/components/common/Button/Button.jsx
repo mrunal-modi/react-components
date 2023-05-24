@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { useTheme } from "../../../hooks/ThemeContext"
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {scrollToElement} from "../../../utils/helpers";
 
 const Button = ({
@@ -17,7 +17,7 @@ const Button = ({
     ...rest
 }) => {
 
-    const { PRIMARY_BTN_BG_COLOR, PRIMARY_BTN_TEXT_COLOR, PRIMARY_COLOR, SECONDARY_COLOR } = useTheme();
+    const { PRIMARY_COLOR, SECONDARY_COLOR } = useTheme();
     const navigate = useNavigate();
     const style = useMemo(() => {
         return {
@@ -28,7 +28,7 @@ const Button = ({
             outline: "none",
             border: "unset"
         }
-    }, [PRIMARY_BTN_BG_COLOR, PRIMARY_BTN_TEXT_COLOR, PRIMARY_COLOR, SECONDARY_COLOR, bgColor, textColor, borderRadius, height]);
+    }, [PRIMARY_COLOR, SECONDARY_COLOR,bgColor, textColor, borderRadius, height]);
 
 
     const handleClick = (e) => {

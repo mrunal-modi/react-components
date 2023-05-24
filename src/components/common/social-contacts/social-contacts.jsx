@@ -7,7 +7,7 @@ const SocialContact = ({
   title = ""
 }) => {
 
-  const { social } = useConfig();
+  const { socials } = useConfig();
 
   return (
     <div
@@ -19,7 +19,7 @@ const SocialContact = ({
         </div>
       }
       <div className="social-links">
-        {social.map((el, i) =>
+        {socials.map((el, i) =>
           <a className="contactIcons" href={el.link} key={i}>
             {el.icon && el.icon} {(showNames && el.label) ? el.label : ""}
           </a>

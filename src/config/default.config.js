@@ -51,7 +51,7 @@ export const SOCIAL_LINKS = [
     }
 ];
 
-export const VIEWS = {
+export const VIEWS = [{
     "path": "/",
     "navbarLinkLabel": "Home",
     "order": 1,
@@ -66,4 +66,4 @@ export const VIEWS = {
             // "textColor": "#000",
         },
     }
-};
+}];

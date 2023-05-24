@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useMemo } from "react";
 import * as defaultConfig from "../config/default.config";
 
 
@@ -51,7 +51,6 @@ export const ConfigProvider = ({
     views=defaultConfig.VIEWS,
     children
 }) => {
-
     return (
         <ConfigContext.Provider
             value={{

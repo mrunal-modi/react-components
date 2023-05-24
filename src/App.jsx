@@ -15,7 +15,6 @@ const App = () => {
   const toggleSidebar = useCallback(() => {
     setIsSidebarOpen(!isSidebarOpen);
   }, [isSidebarOpen])
-
   return (
     <>
       <Header
