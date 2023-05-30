@@ -1,6 +1,5 @@
 import { ThemeProvider } from "./hooks/ThemeContext";
 import { NotificationProvider } from "./hooks/NotificationContext";
-import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { ConfigProvider } from "./hooks/ConfigContext";
 
@@ -28,9 +27,7 @@ const WebGPT = ({
                 themes={themes}
             >
                 <NotificationProvider>
-                    <BrowserRouter>
-                        <App />
-                    </BrowserRouter>
+                    <App />
                 </NotificationProvider>
             </ThemeProvider>
         </ConfigProvider>

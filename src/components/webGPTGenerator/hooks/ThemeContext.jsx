@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import * as Theme from "../config/theme.config";
+import * as Theme from "../config/default.theme.config";
 
 
 const ThemeContext = createContext(null);

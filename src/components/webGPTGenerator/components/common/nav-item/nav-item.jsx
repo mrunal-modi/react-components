@@ -2,17 +2,17 @@ import "./nav-item.scss";
 import Dropdown from "../dropdown/dropdown";
 import { Fragment, useMemo } from "react";
 import Link from "../link/link";
-import * as pages from "../../../pages";
+import { useConfig } from "../../../hooks/ConfigContext";
 
 const NavItem = ({
   nav
 }) => {
-
+  const { views } = useConfig();
   const _nav = useMemo(() => {
     if (nav)
       return nav;
 
-    return Object.values(pages).map((el, i) => ({
+    return Object.values(views).map((el, i) => ({
       label: el.navbarLinkLabel,
       to: el.path,
       order: el.order || i

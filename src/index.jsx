@@ -1,9 +1,6 @@
 import ReactDOM from "react-dom/client";
-import WebGPT from "./WebGPT";
+import Root from "./Root";
 
-export default WebGPT;
 
-if(process.env.NODE_ENV === "development") {
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<WebGPT />);
-}
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Root />);

@@ -1,41 +1,29 @@
+import { useState, useCallback } from "react";
 import "./App.scss";
-import { useCallback, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-
-import Header from "./components/sections/header/header";
-import Sidebar from "./components/common/sidebar/sidebar";
-import Footer from "./components/sections/footer/footer";
-import PageManager from "./managers/page.manager";
-import { useConfig } from "./hooks/ConfigContext";
+import LandingPage from "./view/LandingPage/LandingPage"
+import PreviewPage from "./view/PreviewPage/PreviewPage"
+import PublishedViewPage from "./view/PublishedViewPage/PublishedViewPage";
 
 const App = () => {
 
-  const { header, views } = useConfig();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = useCallback(() => {
     setIsSidebarOpen(!isSidebarOpen);
-  }, [isSidebarOpen])
+  }, [isSidebarOpen]);
+
   return (
-    <>
-      <Header
-        toggleSidebar={toggleSidebar}
-      />
-      <Sidebar
-        toggleSidebar={toggleSidebar}
-        isOpen={isSidebarOpen}
-      />
-      <main
-        className="main"
-        style={{
-          paddingTop: header.position === 'fixed' ? header.height : ""
-        }}
-      >
-        <Routes>
-          <Route path="*" element={<PageManager views={views}/>} />
-        </Routes>
-      </main>
-      <Footer />
-    </>
+    <div className="app">
+        <main
+          className="main"
+        >
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/edit" element={<PreviewPage />} />
+            <Route path="*" element={<PublishedViewPage />} />
+          </Routes>
+        </main>
+    </div>
   );
 };
 
